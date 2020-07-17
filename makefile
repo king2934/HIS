@@ -9,6 +9,8 @@ RM = rm -rf
 all:
 	windres icon.rc -o icon.o
 	gcc -mwindows main.c icon.o -o release/LanHuiHIS.exe
+run:
+	release/LanHuiHIS.exe
 j:
 	$(CC) -encoding utf8 source/com/lanhuispace/his/*.java
 clean:

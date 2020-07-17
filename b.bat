@@ -1,1 +1,3 @@
 cd source
+make
+cd ..

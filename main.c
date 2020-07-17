@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
 			printf("参数没有对上，执行默认\n");
 		}
 	}else{
-		WinExec("java -jar sims.jar",SW_HIDE);//jdk/bin/java
+		WinExec("java Main",SW_HIDE);//jdk/bin/java
 	}
 	return 0;
 }

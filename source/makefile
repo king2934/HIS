@@ -8,7 +8,8 @@ MK = make
 
 #gcc -mwindows main.c -o sims.exe
 all:
-	$(CC) -encoding utf8 Main.java com/lanhuispace/his/*.java
+	$(CC) -encoding utf8 Main.java -d ../release/  
+	$(CC) -encoding utf8 com/lanhuispace/his/*.java -d ../release/  
 clean:
 	$(RM) *.jar *.exe *.o *.class com/lanhuispace/his/*.class
 	
