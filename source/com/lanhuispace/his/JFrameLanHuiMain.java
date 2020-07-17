@@ -1,6 +1,23 @@
 package com.lanhuispace.his;
+import javax.swing.*;
+import javax.swing.border.*;
+
+import java.awt.*;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 public class JFrameLanHuiMain extends JFrame
 {
+	public JPanel jp_north;		//up
+	public JPanel jp_south;		//down
+	public JPanel jp_west;		//left
+	public JPanel jp_east;		//right
+	public JPanel jp_center;	//center
+	
+	public Image imageIcon;
 	/**
 	* Create the application.
 	*/
@@ -53,11 +70,11 @@ public class JFrameLanHuiMain extends JFrame
 		/**
 		*** 菜单
 		**/
-		MainMenu mm = new MainMenu();
+/* 		MainMenu mm = new MainMenu();
 		mm.getComponent().setBackground(Color.white);//背景色
 		mm.setBorderPainted(false);//边框线
 		mm.setBorder(new CompoundBorder(mm.getBorder(),new EmptyBorder(1,0,1,0)));
-		this.jp_north.add(mm);//this.setJMenuBar(mm);//添加菜单
+		this.jp_north.add(mm);//this.setJMenuBar(mm);//添加菜单 */
 		
 		JLabel label = new JLabel("我是一个标签",JLabel.CENTER) ;   // 实例化标签对象
 		label.setSize(200, 0);
@@ -80,9 +97,9 @@ public class JFrameLanHuiMain extends JFrame
 		
 		
 		/************************************************************************/
-		RedrawWindowEvent rwe = new RedrawWindowEvent(this,label);//窗口重绘 大小resize
-		this.addMouseListener(rwe);
-		this.addMouseMotionListener(rwe);
+		//RedrawWindowEvent rwe = new RedrawWindowEvent(this,label);//窗口重绘 大小resize
+		//this.addMouseListener(rwe);
+		//this.addMouseMotionListener(rwe);
 		
 		this.add(jp_south,BorderLayout.SOUTH);//南边
 		this.add(jp_north,BorderLayout.NORTH);//北边
@@ -93,11 +110,5 @@ public class JFrameLanHuiMain extends JFrame
 		this.setVisible(true);
 	}
 	
-	public JPanel jp_north;		//up
-	public JPanel jp_south;		//down
-	public JPanel jp_west;		//left
-	public JPanel jp_east;		//right
-	public JPanel jp_center;	//center
 	
-	public Image imageIcon;
 }
