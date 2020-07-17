@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+
 public class JFrameLanHuiMain extends JFrame
 {
 	public JPanel jp_north;		//up
