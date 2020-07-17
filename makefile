@@ -12,7 +12,7 @@ all:
 j:
 	$(CC) -encoding utf8 source/com/lanhuispace/his/*.java
 clean:
-	$(RM) *.jar *.exe *.o *.class com/lanhuispace/his/*.class release/*.jar release/*.exe release/*.class
+	$(RM) *.jar *.exe *.o *.class source/com/lanhuispace/his/*.class release/*.jar release/*.exe release/*.class
 clear:	
 	#jar cvfm release/sims.jar META-INF/MANIFEST.MF *.class com/lanhuispace/sims/*.class
 	#$(RM) *.jar *.exe *.o *.class com/lanhuispace/sims/*.class
