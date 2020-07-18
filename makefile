@@ -14,8 +14,8 @@ run:
 j:
 	$(CC) -encoding utf8 source/com/lanhuispace/his/*.java
 clean:
-	$(RM) *.jar *.exe *.o *.class release/*.jar release/*.exe release/*.class release/com
+	$(RM) *.jar *.exe *.o *.class release/bin/* release/*.jar release/*.exe release/*.class release/com
 clear:	
 	#jar cvfm release/sims.jar META-INF/MANIFEST.MF *.class com/lanhuispace/sims/*.class
 	#$(RM) *.jar *.exe *.o *.class com/lanhuispace/sims/*.class
-	$(RM) *.jar *.exe *.o *.class com/lanhuispace/his/*.class release/*.jar release/*.exe release/*.class
+	$(RM) *.jar *.exe *.o *.class com/lanhuispace/his/*.class release/bin/* release/*.jar release/*.exe release/*.class
