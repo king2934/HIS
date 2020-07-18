@@ -1,6 +1,6 @@
-rem å…³é—­Windowså¤–å£³ç¨‹åºexplorer
+rem ¹Ø±ÕWindowsÍâ¿Ç³ÌĞòexplorer
 taskkill /f /im explorer.exe
-rem æ¸…ç†ç³»ç»Ÿå›¾æ ‡ç¼“å­˜æ•°æ®åº“
+rem ÇåÀíÏµÍ³Í¼±ê»º´æÊı¾İ¿â
 attrib -h -s -r "%userprofile%\AppData\Local\IconCache.db"
 del /f "%userprofile%\AppData\Local\IconCache.db"
 attrib /s /d -h -s -r "%userprofile%\AppData\Local\Microsoft\Windows\Explorer\*"
@@ -11,9 +11,9 @@ del /f "%userprofile%\AppData\Local\Microsoft\Windows\Explorer\thumbcache_256.db
 del /f "%userprofile%\AppData\Local\Microsoft\Windows\Explorer\thumbcache_1024.db"
 del /f "%userprofile%\AppData\Local\Microsoft\Windows\Explorer\thumbcache_idx.db"
 del /f "%userprofile%\AppData\Local\Microsoft\Windows\Explorer\thumbcache_sr.db"
-rem æ¸…ç† ç³»ç»Ÿæ‰˜ç›˜è®°å¿†çš„å›¾æ ‡
+rem ÇåÀí ÏµÍ³ÍĞÅÌ¼ÇÒäµÄÍ¼±ê
 echo y|reg delete "HKEY_CLASSES_ROOT\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify" /v IconStreams
 echo y|reg delete "HKEY_CLASSES_ROOT\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify" /v PastIconsStream
-rem é‡å¯Windowså¤–å£³ç¨‹åºexplorer
+rem ÖØÆôWindowsÍâ¿Ç³ÌĞòexplorer
 
 start explorer
