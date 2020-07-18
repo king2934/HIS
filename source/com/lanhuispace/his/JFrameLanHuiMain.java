@@ -49,8 +49,8 @@ public class JFrameLanHuiMain extends JFrame
 		this.jp_west.setBackground(new Color(200,66,88,255));
 		this.jp_east.setBackground(new Color(200,36,12,255));
 		this.jp_center.setBackground(Color.red);
-		
-		this.imageIcon = Toolkit.getDefaultToolkit().getImage("images/icon.png");
+		 
+		this.imageIcon = new ImageIcon(this.class.getResource("/images/icon.png"));//Toolkit.getDefaultToolkit().getImage("images/icon.png");
 		
 		this.setTitle("SIMS");
 		this.setSize(width,height);//w,h
