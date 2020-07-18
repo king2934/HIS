@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.lanhuispace.his.events.ReDrawWindowEvent;
+
 public class JFrameLanHuiMain extends JFrame
 {
 	private URL img_title_url; // 标题栏图片的URL
@@ -62,7 +64,7 @@ public class JFrameLanHuiMain extends JFrame
 		this.setLocationRelativeTo(null);//居中
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setIconImage(this.image_title);
-		//this.setUndecorated(true);//默认的边框
+		this.setUndecorated(true);//默认的边框
 		this.setLayout(new BorderLayout());//边界布局 东西南北中（上左中右下）
 		this.setBackground(Color.white);
 		this.getContentPane().setBackground(new Color(200,200,200,1));
@@ -103,9 +105,9 @@ public class JFrameLanHuiMain extends JFrame
 		
 		
 		/************************************************************************/
-		//RedrawWindowEvent rwe = new RedrawWindowEvent(this,label);//窗口重绘 大小resize
-		//this.addMouseListener(rwe);
-		//this.addMouseMotionListener(rwe);
+		ReDrawWindowEvent rdwe = new ReDrawWindowEvent(this,label);//窗口重绘 大小resize
+		this.addMouseListener(rdwe);
+		this.addMouseMotionListener(rdwe);
 		
 		this.add(jp_south,BorderLayout.SOUTH);//南边
 		this.add(jp_north,BorderLayout.NORTH);//北边
