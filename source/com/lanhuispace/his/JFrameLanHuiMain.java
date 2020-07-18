@@ -1,9 +1,10 @@
 package com.lanhuispace.his;
+
 import javax.swing.*;
-import javax.swing.border.*;
-
 import java.awt.*;
+import java.net.URL;
 
+import javax.swing.border.*;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,6 +13,9 @@ import java.util.Map.Entry;
 
 public class JFrameLanHuiMain extends JFrame
 {
+	private URL img_title_url; // 标题栏图片的URL
+	private Image image_title; // 标题栏图片对像
+	
 	public JPanel jp_north;		//up
 	public JPanel jp_south;		//down
 	public JPanel jp_west;		//left
@@ -32,6 +36,9 @@ public class JFrameLanHuiMain extends JFrame
 	 */
 	private void initialize()
 	{
+		this.img_title_url = JFrameLanHuiMain.class.getResource("/images/image_title.png");
+		this.image_title = Toolkit.getDefaultToolkit().getImage(img_title_url);
+		
 		int width=800,height=600;
 		this.jp_north = new JPanel();//up
 		this.jp_south = new JPanel();//down
@@ -48,15 +55,13 @@ public class JFrameLanHuiMain extends JFrame
 		this.jp_south.setBackground(new Color(200,66,200,255));
 		this.jp_west.setBackground(new Color(200,66,88,255));
 		this.jp_east.setBackground(new Color(200,36,12,255));
-		this.jp_center.setBackground(Color.red);
-		 
-		this.imageIcon = new ImageIcon(this.class.getResource("/images/icon.png"));//Toolkit.getDefaultToolkit().getImage("images/icon.png");
+		this.jp_center.setBackground(Color.red);		 
 		
 		this.setTitle("SIMS");
 		this.setSize(width,height);//w,h
 		this.setLocationRelativeTo(null);//居中
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setIconImage(this.imageIcon);
+		this.setIconImage(this.image_title);
 		//this.setUndecorated(true);//默认的边框
 		this.setLayout(new BorderLayout());//边界布局 东西南北中（上左中右下）
 		this.setBackground(Color.white);
