@@ -12,6 +12,7 @@ import com.lanhuispace.his.events.MouseEventButtonClose;
 import com.lanhuispace.his.assemblys.AssemblyMouseEventCustomTitleBarLogin;
 import com.lanhuispace.his.assemblys.AssemblyMouseEventButtonMinimize;
 import com.lanhuispace.his.assemblys.AssemblyMouseEventButtonClose;
+import com.lanhuispace.his.assemblys.AssemblyClientNameManagement;
 
 public class JFrameLanHuiLogin extends JFrame
 {
@@ -59,43 +60,10 @@ public class JFrameLanHuiLogin extends JFrame
 		this.layout_left.setBackground(new Color(0,102,153,255));
 		this.layout_right.setBackground(new Color(0,102,153,255));
 		this.layout_center.setBackground(Color.red);
-		
-		/*
-		JButton btn_minim = new JButton(); // 最小化
-		JButton btn_close = new JButton(); // 关闭
-		
-		//btn_minim.setText("最小化");
-		//btn_close.setText("关闭");
-		
-		btn_minim.setPreferredSize(new Dimension(50,40));//设置大小
-		btn_close.setPreferredSize(new Dimension(50,40));//设置大小
 				
-		btn_minim.setBorderPainted(false); // 是否绘制边框
-		btn_close.setBorderPainted(false); // 是否绘制边框
-		
-		btn_minim.setMargin(new Insets(0,0,0,0)); // 设置边距
-		btn_close.setMargin(new Insets(0,0,0,0)); // 设置边距
-		
-		btn_minim.setFocusPainted(false);//去掉焦点边框
-		btn_close.setFocusPainted(false);//去掉焦点边框		
-		
-		//btn_close.setPressedIcon(new ImageIcon("button_press.png")); // 设置按钮被点击时的图片
-		//btn_close.setContentAreaFilled(false);//去掉按钮填充
-		//btn_close.setForeground(new Color(4,163,242,76)); // 76 ≈ 30% 字体颜色
-		
-		btn_minim.setIcon(new ImageIcon(JFrameLanHuiLogin.class.getResource("/images/btn_minim.png"))); //
-		btn_close.setIcon(new ImageIcon(JFrameLanHuiLogin.class.getResource("/images/btn_close.png"))); //
-		
-		//btn_minim.setPressedIcon(new ImageIcon(JFrameLanHuiLogin.class.getResource("/images/btn_minim.png"))); //
-		//btn_close.setPressedIcon(new ImageIcon(JFrameLanHuiLogin.class.getResource("/images/btn_close.png"))); //
-		
-		btn_minim.setBackground(new Color(4,163,242,0)); // 背景色 76 ≈ 30% 背景色
-		btn_close.setBackground(new Color(4,163,242,0)); // 背景色 76 ≈ 30% 背景色
-		*/
-		
 		
 		////
-		this.mJLabel = new JLabel("我是一个标签",JLabel.CENTER) ;   // 实例化标签对象
+		this.mJLabel = new AssemblyClientNameManagement() ;   // 实例化标签对象
 		this.mJLabel.setSize(200, 0);
 		this.layout_bottom.add(this.mJLabel);
 

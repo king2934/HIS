@@ -1,8 +1,18 @@
+@echo off
 cd source
 make
 cd ..
 cd release
-jar cvfm ../release/his.jar META-INF/MANIFEST.MF *.class images com/lanhuispace/his/*.class com/lanhuispace/his/events/*.class com/lanhuispace/his/assemblys/*.class
-mkdir bin
-mv his.jar LanHuiHIS.exe bin/
+
+rem "打包"
+jar cvfm ../release/his.jar META-INF/MANIFEST.MF Main.class images libs ^
+com/lanhuispace/his/*.class ^
+com/lanhuispace/his/events/*.class ^
+com/lanhuispace/his/assemblys/*.class
+
+rem "打包后清理"
+del *.class /S /Q
+rd com /S /Q
+::mkdir bin
+::mv his.jar LanHuiHIS.exe bin/
 cd ..
