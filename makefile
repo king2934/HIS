@@ -13,6 +13,8 @@ run:
 	release/LanHuiHIS.exe
 j:
 	$(CC) -encoding utf8 source/com/lanhuispace/his/*.java
+cleaj:
+	$(RM) *.jar *.exe *.o *.class release/*.class release/com release/bin/*.jar
 clean:
 	$(RM) *.jar *.exe *.o *.class release/bin/* release/*.jar release/*.exe release/*.class release/com
 clear:	

@@ -6,7 +6,7 @@ public class StartUp implements Runnable
 	public synchronized void run()
 	{
 		try {
-			JFrameLanHuiMain window = new JFrameLanHuiMain();
+			JFrameLanHuiLogin window = new JFrameLanHuiLogin();
 			//window.mJFrame.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
