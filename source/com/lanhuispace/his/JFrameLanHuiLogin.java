@@ -41,31 +41,34 @@ public class JFrameLanHuiLogin extends JFrame
 
 		this.layout_top = new AssemblyMouseEventCustomTitleBarLogin(this);
 		this.layout_bottom = new JPanel();
-		this.layout_left = new JPanel();
-		this.layout_right = new JPanel();
+		//this.layout_left = new JPanel();
+		//this.layout_right = new JPanel();
 		this.layout_center = new JPanel();
 		
 		this.layout_top.setLayout(new FlowLayout(FlowLayout.RIGHT,0,0));// 右对齐 水平间距0 垂直间距0
+		this.layout_center.setLayout(new FlowLayout(FlowLayout.CENTER,0,36));
 		
 		this.layout_top.setBounds(0, 0, WIDTH, 40); //x、y、w、h
 		this.layout_bottom.setBounds(0, 180, WIDTH, 300); //x、y、w、h
+		this.layout_center.setBounds(0, 40, WIDTH, 140); //x、y、w、h
 		
 		this.layout_top.setPreferredSize(new Dimension(WIDTH,40)); // 宽度同窗体 高度40
 		this.layout_bottom.setPreferredSize(new Dimension(WIDTH,40)); // 宽度同窗体 高度40
-		this.layout_left.setPreferredSize(new Dimension(40,HEIGHT)); // 宽度同窗体 高度40
-		this.layout_right.setPreferredSize(new Dimension(40,HEIGHT)); // 宽度同窗体 高度40
+		//this.layout_left.setPreferredSize(new Dimension(40,HEIGHT)); // 宽度同窗体 高度40
+		//this.layout_right.setPreferredSize(new Dimension(40,HEIGHT)); // 宽度同窗体 高度40
 		
 		this.layout_top.setBackground(new Color(0,102,153,255));
 		this.layout_bottom.setBackground(new Color(0,102,153,255));
-		this.layout_left.setBackground(new Color(0,102,153,255));
-		this.layout_right.setBackground(new Color(0,102,153,255));
-		this.layout_center.setBackground(Color.red);
+		//this.layout_left.setBackground(new Color(0,102,153,255));
+		//this.layout_right.setBackground(new Color(0,102,153,255));
+		this.layout_center.setBackground(Color.white);
 				
 		
 		////
 		this.mJLabel = new AssemblyClientNameManagement() ;   // 实例化标签对象
-		this.mJLabel.setSize(200, 0);
-		this.layout_bottom.add(this.mJLabel);
+		//this.mJLabel.setBounds(0,0,600,80);//x、y、w、h
+		this.layout_center.add(this.mJLabel);
+		//this.layout_bottom.add(this.mJLabel);
 
 
 		//最小化
@@ -99,7 +102,10 @@ public class JFrameLanHuiLogin extends JFrame
 		
 		///
 		this.add(this.layout_top);
+		this.add(this.layout_center);
 		this.add(this.layout_bottom);
+		//this.add(this.layout_left);
+		//this.add(this.layout_right);
 		
 		
 		/*

@@ -54,7 +54,7 @@ public class AssemblyClientNameManagement extends JLabel
 	private void initialize()
 	{
 		initconfigjson();
-		this.setForeground(Color.PINK);//字体颜色
+		this.setForeground(Color.darkGray);//字体颜色
 		this.setFont(new Font("微软雅黑",Font.BOLD,36));//字体 加粗 36号大小
 		this.setText(this.mClientNameString);
 	}
