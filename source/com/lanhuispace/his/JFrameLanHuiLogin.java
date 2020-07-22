@@ -1,5 +1,6 @@
 package com.lanhuispace.his;
 
+import javax.swing.border.*;
 import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
@@ -13,6 +14,7 @@ import com.lanhuispace.his.assemblys.AssemblyMouseEventCustomTitleBarLogin;
 import com.lanhuispace.his.assemblys.AssemblyMouseEventButtonMinimize;
 import com.lanhuispace.his.assemblys.AssemblyMouseEventButtonClose;
 import com.lanhuispace.his.assemblys.AssemblyClientNameManagement;
+import com.lanhuispace.his.assemblys.AssemblyLayoutLoginInput;
 
 public class JFrameLanHuiLogin extends JFrame
 {
@@ -47,6 +49,7 @@ public class JFrameLanHuiLogin extends JFrame
 		
 		this.layout_top.setLayout(new FlowLayout(FlowLayout.RIGHT,0,0));// 右对齐 水平间距0 垂直间距0
 		this.layout_center.setLayout(new FlowLayout(FlowLayout.CENTER,0,36));
+		this.layout_bottom.setLayout(new FlowLayout(FlowLayout.CENTER,0,30));
 		
 		this.layout_top.setBounds(0, 0, WIDTH, 40); //x、y、w、h
 		this.layout_bottom.setBounds(0, 180, WIDTH, 300); //x、y、w、h
@@ -62,7 +65,32 @@ public class JFrameLanHuiLogin extends JFrame
 		//this.layout_left.setBackground(new Color(0,102,153,255));
 		//this.layout_right.setBackground(new Color(0,102,153,255));
 		this.layout_center.setBackground(Color.white);
-				
+		
+		////
+		JPanel layout_user_pass = new JPanel();
+		layout_user_pass.setLayout(new FlowLayout(FlowLayout.CENTER,0,10));
+		layout_user_pass.setPreferredSize(new Dimension(360,220));
+		layout_user_pass.setBackground(Color.red);
+		
+		//
+		AssemblyLayoutLoginInput layout_username = new AssemblyLayoutLoginInput();		
+		AssemblyLayoutLoginInput layout_password = new AssemblyLayoutLoginInput();
+		
+		
+		
+		JTextField jt_username = new JTextField();
+		jt_username.setPreferredSize(new Dimension(360,36));
+		jt_username.setBounds(0,0,360,36);//x、y、w、h
+		//jt_username.setColumns(20);  // 设置文本框长度，20个字符
+        jt_username.setText("工号");
+		jt_username.setBorder(new LineBorder(Color.BLACK));
+		jt_username.setFont(new Font("黑体",Font.PLAIN,16));
+		
+		layout_user_pass.add(layout_username);
+		layout_user_pass.add(layout_password);
+		
+		
+	
 		
 		////
 		this.mJLabel = new AssemblyClientNameManagement() ;   // 实例化标签对象
@@ -99,6 +127,8 @@ public class JFrameLanHuiLogin extends JFrame
 		
 		this.layout_top.add(btn_minim);
 		this.layout_top.add(btn_close);
+		
+		this.layout_bottom.add(layout_user_pass);
 		
 		///
 		this.add(this.layout_top);
