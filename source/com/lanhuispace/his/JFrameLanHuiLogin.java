@@ -2,6 +2,7 @@ package com.lanhuispace.his;
 
 import javax.swing.border.*;
 import javax.swing.*;
+
 import java.awt.*;
 import java.net.URL;
 import java.awt.event.MouseAdapter;
@@ -49,7 +50,7 @@ public class JFrameLanHuiLogin extends JFrame
 		
 		this.layout_top.setLayout(new FlowLayout(FlowLayout.RIGHT,0,0));// 右对齐 水平间距0 垂直间距0
 		this.layout_center.setLayout(new FlowLayout(FlowLayout.CENTER,0,36));
-		this.layout_bottom.setLayout(new FlowLayout(FlowLayout.CENTER,0,30));
+		this.layout_bottom.setLayout(new FlowLayout(FlowLayout.CENTER,0,20));
 		
 		this.layout_top.setBounds(0, 0, WIDTH, 40); //x、y、w、h
 		this.layout_bottom.setBounds(0, 180, WIDTH, 300); //x、y、w、h
@@ -69,14 +70,17 @@ public class JFrameLanHuiLogin extends JFrame
 		////
 		JPanel layout_user_pass = new JPanel();
 		layout_user_pass.setLayout(new FlowLayout(FlowLayout.CENTER,0,10));
-		layout_user_pass.setPreferredSize(new Dimension(360,220));
-		layout_user_pass.setBackground(Color.red);
+		layout_user_pass.setPreferredSize(new Dimension(320,220));
+		layout_user_pass.setBackground(null);
+		layout_user_pass.setOpaque(true);
+		
 		
 		//
-		AssemblyLayoutLoginInput layout_username = new AssemblyLayoutLoginInput();		
+		AssemblyLayoutLoginInput layout_username = new AssemblyLayoutLoginInput();
 		AssemblyLayoutLoginInput layout_password = new AssemblyLayoutLoginInput();
 		
-		
+		layout_username.setType(1);
+		layout_password.setType(2);
 		
 		JTextField jt_username = new JTextField();
 		jt_username.setPreferredSize(new Dimension(360,36));
