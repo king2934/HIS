@@ -4,6 +4,7 @@ import javax.swing.border.*;
 import javax.swing.*;
 
 import java.awt.*;
+import java.awt.Color;
 import java.net.URL;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -17,10 +18,11 @@ import com.lanhuispace.his.assemblys.AssemblyMouseEventButtonClose;
 import com.lanhuispace.his.assemblys.AssemblyClientNameManagement;
 import com.lanhuispace.his.assemblys.AssemblyLayoutLoginInput;
 import com.lanhuispace.his.assemblys.AssemblyEventKeyButtonLogin;
+import com.lanhuispace.his.assemblys.AssemblyCustomLoginButton;
 
 public class JFrameLanHuiLogin extends JFrame
 {
-	private JLabel mJLabel;
+	private JLabel mLabelHospitalName;
 	private static final int WIDTH = 800; //窗口宽度
 	private static final int HEIGHT = 480; //窗口高度
 	
@@ -76,8 +78,7 @@ public class JFrameLanHuiLogin extends JFrame
 		layout_user_pass.setLayout(new FlowLayout(FlowLayout.CENTER,0,10));
 		layout_user_pass.setPreferredSize(new Dimension(320,220));
 		layout_user_pass.setBackground(null);
-		layout_user_pass.setOpaque(true);
-		
+		layout_user_pass.setOpaque(true);		
 		
 		//
 		AssemblyLayoutLoginInput layout_username = new AssemblyLayoutLoginInput();
@@ -102,8 +103,7 @@ public class JFrameLanHuiLogin extends JFrame
 		login_key_pass.setClassTips(layout_username,layout_password);
 		
 		this.mTextUserName.addKeyListener(login_key_user);
-		this.mTextPassWord.addKeyListener(login_key_pass);
-		
+		this.mTextPassWord.addKeyListener(login_key_pass);		
 		
 		layout_username.setTextFieldUserName(this.mTextUserName);
 		layout_password.setTextFieldPassWord(this.mTextPassWord);
@@ -111,24 +111,19 @@ public class JFrameLanHuiLogin extends JFrame
 		layout_username.setType(1);
 		layout_password.setType(2);
 		
-		JTextField jt_username = new JTextField();
-		jt_username.setPreferredSize(new Dimension(360,36));
-		jt_username.setBounds(0,0,360,36);//x、y、w、h
-		//jt_username.setColumns(20);  // 设置文本框长度，20个字符
-        jt_username.setText("工号");
-		jt_username.setBorder(new LineBorder(Color.BLACK));
-		jt_username.setFont(new Font("黑体",Font.PLAIN,16));
+		AssemblyCustomLoginButton layout_login = new AssemblyCustomLoginButton();
 		
 		layout_user_pass.add(layout_username);
 		layout_user_pass.add(layout_password);
+		layout_user_pass.add(layout_login);
 		
 		
 	
 		
 		////
-		this.mJLabel = new AssemblyClientNameManagement() ;   // 实例化标签对象
+		this.mLabelHospitalName = new AssemblyClientNameManagement() ;   // 实例化标签对象
 		//this.mJLabel.setBounds(0,0,600,80);//x、y、w、h
-		this.layout_center.add(this.mJLabel);
+		this.layout_center.add(this.mLabelHospitalName);
 		//this.layout_bottom.add(this.mJLabel);
 
 
