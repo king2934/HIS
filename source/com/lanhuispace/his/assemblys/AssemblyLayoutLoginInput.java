@@ -15,11 +15,20 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
 
 public class AssemblyLayoutLoginInput extends JPanel
 {
 	private static final int WIDTH = 320; //窗口宽度
-	private static final int HEIGHT = 56; //窗口高度	
+	private static final int HEIGHT = 60; //窗口高度
+
+	private JTextField mTextUserName;
+	private JPasswordField mTextPassWord;
+	
+	private String mUserName;
+	private String mPassWord;
 	
 	private JPanel layout_left;
 	private JPanel layout_center;
@@ -74,12 +83,12 @@ public class AssemblyLayoutLoginInput extends JPanel
 		this.layout_left.setBounds(0,0,38,38);//x,y,w,h
 		this.layout_center.setBounds(38,0,(WIDTH-38*2),38);//x,y,w,h
 		this.layout_right.setBounds((WIDTH-38*2+38),0,38,38);//x,y,w,h
-		this.layout_bottom.setBounds(0,(HEIGHT-18),WIDTH,18);//x,y,w,h
+		this.layout_bottom.setBounds(0,(HEIGHT-24),WIDTH,24);//x,y,w,h
 		
 		this.layout_bottom.setBackground(null);
 		this.layout_bottom.setOpaque(true);		
 		this.layout_bottom.add(this.mJLabelTips);//
-		
+			
 		this.add(this.layout_left);
 		this.add(this.layout_center);
 		this.add(this.layout_right);
@@ -93,6 +102,25 @@ public class AssemblyLayoutLoginInput extends JPanel
 		this.mJLabelTips.setText(str);
 	}
 	
+	//
+	public void setTextFieldUserName(JTextField Tuser)
+	{
+		this.mTextUserName = Tuser;
+		this.mTextUserName.setPreferredSize(new Dimension((WIDTH-38*2-20), 38));//w,h
+		
+		this.layout_center.setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
+		this.layout_center.add(this.mTextUserName);
+	}
+	//
+	public void setTextFieldPassWord(JPasswordField Tpass)
+	{
+		this.mTextPassWord = Tpass;		
+		this.mTextPassWord.setPreferredSize(new Dimension((WIDTH-38*2-20), 38));//w,h
+		
+		this.layout_center.setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
+		this.layout_center.add(this.mTextPassWord);
+	}
+	
 	//设置类型
 	public void setType(int i)
 	{
@@ -101,14 +129,45 @@ public class AssemblyLayoutLoginInput extends JPanel
 		{
 			case 1:
 				this.setTypeUserAndPass(img_url);
+				//this.showUsername();
 				break;
 			case 2:
 				this.setTypeUserAndPass(img_url);
+				//this.showPassword();
 				break;
 			case 3:
 				break;
 		}
 	}
+	
+	//
+	private void showUsername()
+	{
+		this.mTextUserName = new JTextField();
+		this.mTextUserName.setBackground(Color.white);
+		this.mTextUserName.setFont(new Font("Microsoft YaHei",Font.BOLD,18));
+		this.mTextUserName.setPreferredSize(new Dimension((WIDTH-38*2-20), 38));//w,h		
+		this.mTextUserName.setBorder(null);//
+		
+		this.layout_center.setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
+		this.layout_center.add(this.mTextUserName);
+	}
+	//
+	private void showPassword()
+	{
+		this.mTextPassWord = new JPasswordField();
+		this.mTextPassWord.setBackground(Color.white);
+		this.mTextPassWord.setFont(new Font("Microsoft YaHei",Font.BOLD,18));
+		this.mTextPassWord.setPreferredSize(new Dimension((WIDTH-38*2-20), 38));//w,h		
+		this.mTextPassWord.setBorder(null);//
+		
+		AssemblyEventKeyButtonLogin loginKey = new AssemblyEventKeyButtonLogin(this.mTextUserName,this.mTextPassWord);
+		loginKey.setAlert(this.mJLabelTips);
+		this.mTextPassWord.addKeyListener(loginKey);
+		
+		this.layout_center.setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
+		this.layout_center.add(this.mTextPassWord);
+	}	
 	
 	//
 	private URL setTypeSelectImage(int i)

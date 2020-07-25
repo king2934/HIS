@@ -16,6 +16,7 @@ import com.lanhuispace.his.assemblys.AssemblyMouseEventButtonMinimize;
 import com.lanhuispace.his.assemblys.AssemblyMouseEventButtonClose;
 import com.lanhuispace.his.assemblys.AssemblyClientNameManagement;
 import com.lanhuispace.his.assemblys.AssemblyLayoutLoginInput;
+import com.lanhuispace.his.assemblys.AssemblyEventKeyButtonLogin;
 
 public class JFrameLanHuiLogin extends JFrame
 {
@@ -32,6 +33,9 @@ public class JFrameLanHuiLogin extends JFrame
 	private JPanel layout_right;	// 右
 	private JPanel layout_center;	// 中
 	
+	private JTextField mTextUserName;
+	private JPasswordField mTextPassWord;
+
 	public JFrameLanHuiLogin()
 	{
 		initialize();
@@ -78,6 +82,31 @@ public class JFrameLanHuiLogin extends JFrame
 		//
 		AssemblyLayoutLoginInput layout_username = new AssemblyLayoutLoginInput();
 		AssemblyLayoutLoginInput layout_password = new AssemblyLayoutLoginInput();
+		
+		this.mTextUserName = new JTextField();
+		this.mTextPassWord = new JPasswordField();
+		
+		this.mTextUserName.setBackground(Color.white);
+		this.mTextPassWord.setBackground(Color.white);
+		
+		this.mTextUserName.setFont(new Font("Microsoft YaHei",Font.BOLD,18));
+		this.mTextPassWord.setFont(new Font("Microsoft YaHei",Font.BOLD,18));
+		
+		this.mTextUserName.setBorder(null);//
+		this.mTextPassWord.setBorder(null);//
+		
+		AssemblyEventKeyButtonLogin login_key_user = new AssemblyEventKeyButtonLogin(this.mTextUserName);
+		AssemblyEventKeyButtonLogin login_key_pass = new AssemblyEventKeyButtonLogin(this.mTextUserName,this.mTextPassWord);
+		
+		login_key_user.setClassTips(layout_username);
+		login_key_pass.setClassTips(layout_username,layout_password);
+		
+		this.mTextUserName.addKeyListener(login_key_user);
+		this.mTextPassWord.addKeyListener(login_key_pass);
+		
+		
+		layout_username.setTextFieldUserName(this.mTextUserName);
+		layout_password.setTextFieldPassWord(this.mTextPassWord);
 		
 		layout_username.setType(1);
 		layout_password.setType(2);
