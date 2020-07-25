@@ -10,15 +10,20 @@ import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.BorderFactory;
+
+import com.lanhuispace.his.assemblys.JFrameCustomDebug;
 
 public class AssemblyCustomLoginButton extends JPanel implements MouseListener
 {
 	private static final int WIDTH = 320; //窗口宽度
 	private static final int HEIGHT = 46; //窗口高度
 	
+	private JFrameCustomDebug mJFrameDebug; // 调试窗口
+	private AsyncJFrameCustomDebug mAsyncDebug; //
 	private JLabel mTextLoginSafe;
 	
 	public AssemblyCustomLoginButton()
@@ -29,6 +34,9 @@ public class AssemblyCustomLoginButton extends JPanel implements MouseListener
 	//
 	private void initialize()
 	{
+		this.mJFrameDebug = new JFrameCustomDebug(); // 调试窗口
+		this.mAsyncDebug = new AsyncJFrameCustomDebug(this.mJFrameDebug);  // 调试窗口 异步处理	 AsyncHttpUrlResult	
+		
 		this.mTextLoginSafe = new JLabel();
 		this.mTextLoginSafe.setFont(new Font("Microsoft YaHei",Font.BOLD,24));
 		this.mTextLoginSafe.setForeground(Color.white);
@@ -65,9 +73,23 @@ public class AssemblyCustomLoginButton extends JPanel implements MouseListener
     public void mouseClicked(MouseEvent e)
 	{
 		this.setBackground(new Color(0,160,220));
+		if ( !this.mJFrameDebug.isVisible() )
+		{
+			this.mJFrameDebug.setVisible(true);
+		}
+
+		AsyncJFrameCustomDebug httpRequest = new AsyncJFrameCustomDebug(this.mJFrameDebug);
+		httpRequest.setThreadName("网络请求...");
+		httpRequest.start();
+		
+		//窗口层次		
+		// if( !this.mJFrameDebug.isAlwaysOnTop() )
+		// {
+			// this.mJFrameDebug.setAlwaysOnTop(true);
+		// }
     }
 	
-	//鼠标按下弹开时调用
+	//鼠标时调用
     @Override
     public void mousePressed(MouseEvent e)
 	{
