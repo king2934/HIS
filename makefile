@@ -20,8 +20,7 @@ ifeq ($(detected_OS),Darwin)# Mac OS X
     CFLAGS += -D OSX
 endif
 ifeq ($(detected_OS),Linux)
-    CFLAGS   +=   -D LINUX
-	$(SUDO) compile.sh
+    CFLAGS   +=   -D LINUX	
 	compile = ./compile.sh
 endif
 ifeq ($(detected_OS),GNU)           # Debian GNU Hurd
@@ -44,6 +43,7 @@ ifeq ($(detected_OS),Haiku)
 endif
 
 all:
+	$(SUDO) compile.sh
 	echo $(compile)
 
 #gcc -mwindows main.c -o sims.exe
