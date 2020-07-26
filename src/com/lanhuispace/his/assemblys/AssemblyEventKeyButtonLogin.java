@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 
 import com.lanhuispace.his.assemblys.AssemblyLayoutLoginInput;
+import com.lanhuispace.his.utils.UtilLogManage;
 
 public class AssemblyEventKeyButtonLogin implements KeyListener
 {
@@ -68,11 +69,17 @@ public class AssemblyEventKeyButtonLogin implements KeyListener
 		{
 			this.mUserName = this.mTextUserName.getText().trim();
 			
-			if(mTextPassWord!=null)
+			if( mTextPassWord != null )
 			{
 				this.mPassWord = String.valueOf(this.mTextPassWord.getPassword()).trim();
-				this.mClassTipsPassWord.setText("enter:"+this.mPassWord);
-				this.mClassTipsUserName.setText("enter:"+this.mUserName);
+				
+				UtilLogManage logM = new UtilLogManage();
+				logM.setThreadName("Thread login UserName And PassWord:");
+				logM.putMessage("username:"+this.mUserName+",password:"+this.mPassWord);
+				logM.start();
+				
+				this.mClassTipsUserName.setText("user:"+this.mUserName);
+				this.mClassTipsPassWord.setText("pass:"+this.mPassWord);
 			}			
 		}
 	}

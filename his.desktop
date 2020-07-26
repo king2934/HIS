@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=医生工作站
+Exec=/home/king/soft/his/release/start.sh
+Type=Application
+Icon=/home/king/soft/his/release/images/image_title.png
+Terminal=false
