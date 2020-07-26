@@ -1,8 +1,8 @@
 @echo off
+md release
 cd src
 make
 cd ..
-cd release
 
 rem "´ò°ü"
 rem jar cvfm ../release/his.jar META-INF/MANIFEST.MF Main.class images libs ^
@@ -17,4 +17,3 @@ rem del *.class /S /Q
 rem rd com /S /Q
 ::mkdir bin
 ::mv his.jar LanHuiHIS.exe bin/
-cd ..

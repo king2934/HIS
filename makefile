@@ -1,9 +1,13 @@
 ###
 CC = javac 
 RM = rm -rf
+RD = rd /s /q 
+WDICON =windres icon.rc -o icon.o
+GCCEXE=gcc -mwindows main.c icon.o -o LanHuiHIS.exe
 COMPILE =b.bat
 SUDO = sudo chmod +x compile.sh install.sh
 INSTALL = i.bat
+
 
 ifeq '$(findstring ;,$(PATH))' ';'
 	detected_OS := Windows
@@ -23,6 +27,8 @@ ifeq ($(detected_OS),Darwin)# Mac OS X
 endif
 ifeq ($(detected_OS),Linux)
     CFLAGS   +=   -D LINUX	
+	WDICON =
+	GCCEXE =
 	COMPILE = ./compile.sh
 	INSTALL = ./install.sh
 endif
@@ -46,9 +52,13 @@ ifeq ($(detected_OS),Haiku)
 endif
 
 all:
+	$(WDICON)
+	$(GCCEXE) 
 	$(SUDO) 
-	$(COMPILE) 
+	$(COMPILE)	
 install:
 	$(INSTALL)
 clean:
 	$(RM) *.jar *.exe *.o *.class release/*.* release/*.class release/*.o release/*.exe release/*.jar release/com
+
+	
