@@ -2,4 +2,4 @@
 cd src
 make
 cd ..
-cd release
+cp libs release/
