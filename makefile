@@ -1,8 +1,9 @@
 ###
 CC = javac 
 RM = rm -rf
-compile = b.bat
-SUDO = sudo chmod +x 
+COMPILE =b.bat
+SUDO = sudo chmod +x compile.sh install.sh
+INSTALL = i.bat
 
 ifeq '$(findstring ;,$(PATH))' ';'
 	detected_OS := Windows
@@ -15,13 +16,15 @@ endif
 
 ifeq ($(detected_OS),Windows)
     CFLAGS += -D WIN32
+	SUDO = 
 endif
 ifeq ($(detected_OS),Darwin)# Mac OS X
     CFLAGS += -D OSX
 endif
 ifeq ($(detected_OS),Linux)
     CFLAGS   +=   -D LINUX	
-	compile = ./compile.sh
+	COMPILE = ./compile.sh
+	INSTALL = ./install.sh
 endif
 ifeq ($(detected_OS),GNU)           # Debian GNU Hurd
     CFLAGS   +=   -D GNU_HURD
@@ -43,22 +46,9 @@ ifeq ($(detected_OS),Haiku)
 endif
 
 all:
-	$(SUDO) compile.sh
-	echo $(compile)
-
-#gcc -mwindows main.c -o sims.exe
-#all:
-	# windres icon.rc -o icon.o
-	# gcc -mwindows main.c icon.o -o release/LanHuiHIS.exe
-# run:
-	# release/LanHuiHIS.exe
-# j:
-	# $(CC) -encoding utf8 source/com/lanhuispace/his/*.java
-# cleaj:
-	# $(RM) *.jar *.exe *.o *.class release/*.class release/*.jar release/com release/bin/*.jar
-# clean:
-	# $(RM) *.jar *.exe *.o *.class release/bin/* release/*.jar release/*.exe release/*.class release/com
-# clear:	
-#	jar cvfm release/sims.jar META-INF/MANIFEST.MF *.class com/lanhuispace/sims/*.class
-#	$(RM) *.jar *.exe *.o *.class com/lanhuispace/sims/*.class
-	# $(RM) *.jar *.exe *.o *.class com/lanhuispace/his/*.class release/bin/* release/*.jar release/*.exe release/*.class
+	$(SUDO) 
+	$(COMPILE) 
+install:
+	$(INSTALL)
+clean:
+	$(RM) *.jar *.exe *.o *.class release/*.* release/*.class release/*.o release/*.exe release/*.jar release/com
