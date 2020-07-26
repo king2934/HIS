@@ -1,7 +1,7 @@
 ###
 CC = javac 
 RM = rm -rf
-
+compile = b.bat
 
 ifeq '$(findstring ;,$(PATH))' ';'
 	detected_OS := Windows
@@ -20,6 +20,8 @@ ifeq ($(detected_OS),Darwin)# Mac OS X
 endif
 ifeq ($(detected_OS),Linux)
     CFLAGS   +=   -D LINUX
+	sudo chmod +x  compile.sh
+	compile = ./compile.sh
 endif
 ifeq ($(detected_OS),GNU)           # Debian GNU Hurd
     CFLAGS   +=   -D GNU_HURD
@@ -39,8 +41,9 @@ endif
 ifeq ($(detected_OS),Haiku)
     CFLAGS   +=   -D Haiku
 endif
+
 all:
-	echo $(detected_OS) $(CFLAGS)
+	echo $(compile)
 
 #gcc -mwindows main.c -o sims.exe
 #all:
