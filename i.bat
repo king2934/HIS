@@ -25,6 +25,9 @@ echo 桌面快捷方式创建成功！
 makelnk.vbs
 del /f /q makelnk.vbs
 
+REG ADD "HKCU\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers" /v "%ProgramFiles%\LanHui\his\LanHuiHIS.exe" /t REG_SZ /d RUNASADMIN
+
+
 rem echo [InternetShortcut]>>"%desktop%\蓝徽HIS.url"
 rem echo URL="%ProgramFiles%\LanHui\his\LanHuiHIS.exe" >>"%desktop%\蓝徽HIS.lnk"
 rem echo IconIndex=0 >>"%desktop%\蓝徽HIS.lnk"
