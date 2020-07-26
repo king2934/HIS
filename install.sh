@@ -5,7 +5,7 @@ sudo chown -R `whoami`:`whoami` /usr/local/lanhuihis
 
 cp -r release/* /usr/local/lanhuihis/
 
-echo "\[Desktop Entry\]">/home/`whoami`/桌面/LanHuiHIS.desktop
+echo "[Desktop Entry]">/home/`whoami`/桌面/LanHuiHIS.desktop
 echo "Encoding=UTF-8">>/home/`whoami`/桌面/LanHuiHIS.desktop
 echo "Name=蓝徽医院信息系统">>/home/`whoami`/桌面/LanHuiHIS.desktop
 echo "Type=Application">>/home/`whoami`/桌面/LanHuiHIS.desktop
