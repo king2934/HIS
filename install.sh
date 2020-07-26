@@ -5,6 +5,10 @@ sudo chown -R `whoami`:`whoami` /usr/local/lanhuihis
 
 cp -r release/* /usr/local/lanhuihis/
 
+echo "#!/bin/sh"=>/usr/local/lanhuihis/start.sh
+echo "java Main"=>/usr/local/lanhuihis/start.sh
+
+
 echo "[Desktop Entry]">/home/`whoami`/桌面/LanHuiHIS.desktop
 echo "Encoding=UTF-8">>/home/`whoami`/桌面/LanHuiHIS.desktop
 echo "Name=蓝徽医院信息系统">>/home/`whoami`/桌面/LanHuiHIS.desktop
@@ -14,3 +18,4 @@ echo "Icon=/usr/local/lanhuihis/images/image_title.png">>/home/`whoami`/桌面/L
 echo "Terminal=false">>/home/`whoami`/桌面/LanHuiHIS.desktop
 
 sudo chmod a+x /home/`whoami`/桌面/LanHuiHIS.desktop
+sudo chmod a+x /usr/local/lanhuihis/start.sh
