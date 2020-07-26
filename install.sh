@@ -5,8 +5,8 @@ sudo chown -R `whoami`:`whoami` /usr/local/lanhuihis
 
 cp -r release/* /usr/local/lanhuihis/
 
-echo "#!/bin/sh"=>/usr/local/lanhuihis/start.sh
-echo "java Main"=>/usr/local/lanhuihis/start.sh
+echo "#!/bin/sh">/usr/local/lanhuihis/start.sh
+echo "java Main">>/usr/local/lanhuihis/start.sh
 
 
 echo "[Desktop Entry]">/home/`whoami`/桌面/LanHuiHIS.desktop
