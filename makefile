@@ -2,6 +2,7 @@
 CC = javac 
 RM = rm -rf
 compile = b.bat
+SUDO = sudo chmod +x 
 
 ifeq '$(findstring ;,$(PATH))' ';'
 	detected_OS := Windows
@@ -20,7 +21,7 @@ ifeq ($(detected_OS),Darwin)# Mac OS X
 endif
 ifeq ($(detected_OS),Linux)
     CFLAGS   +=   -D LINUX
-	sudo chmod +x  compile.sh
+	$(SUDO) compile.sh
 	compile = ./compile.sh
 endif
 ifeq ($(detected_OS),GNU)           # Debian GNU Hurd
