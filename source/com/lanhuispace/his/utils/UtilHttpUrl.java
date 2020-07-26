@@ -52,9 +52,7 @@ public class UtilHttpUrl
 				os.write(this.mJsonDataParams.getBytes());
 				os.flush();
 				os.close();
-			}
-			
-            
+			}            
 			
 			int response = this.mConn.getResponseCode();			
 			if ( response == HttpURLConnection.HTTP_OK )

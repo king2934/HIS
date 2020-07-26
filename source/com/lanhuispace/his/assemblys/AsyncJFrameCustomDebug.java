@@ -37,7 +37,7 @@ public class AsyncJFrameCustomDebug implements Runnable,CallBack
 	@Override
 	public synchronized void run()
 	{
-		UtilHttpUrl http = new UtilHttpUrl("http://47.114.36.177:8080/HIS//api/index");
+		UtilHttpUrl http = new UtilHttpUrl("http://47.114.36.177:8080/HIS/api/index");
 		http.doGet();
 		this.result(http.getResult());
 	}
