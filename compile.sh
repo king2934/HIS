@@ -1,5 +1,5 @@
 #!/bin/sh
-cp libs release/
+cp -r libs release/
 cd src
 make
 cd ..
