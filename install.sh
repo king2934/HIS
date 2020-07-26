@@ -13,4 +13,4 @@ echo "Type=Application">>/home/`whoami`/桌面/LanHuiHIS.desktop
 echo "Icon=/usr/local/lanhuihis/images/image_title.png">>/home/`whoami`/桌面/LanHuiHIS.desktop
 echo "Terminal=false">>/home/`whoami`/桌面/LanHuiHIS.desktop
 
-sudo a+x /home/`whoami`/桌面/LanHuiHIS.desktop
+sudo chmod a+x /home/`whoami`/桌面/LanHuiHIS.desktop
