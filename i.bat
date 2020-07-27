@@ -1,4 +1,5 @@
 @echo off
+cd /d "%~dp0"
 @md "%ProgramFiles%\LanHui"
 echo d|xcopy /E /C /Q /H /Y release "%ProgramFiles%\LanHui\his"
 echo f|xcopy /E /C /Q /H /Y LanHuiHIS.exe "%ProgramFiles%\LanHui\his\LanHuiHIS.exe"
