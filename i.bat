@@ -1,5 +1,4 @@
 @echo off
-cd /d "%~dp0"
 @md "%ProgramFiles%\LanHui"
 echo d|xcopy /E /C /Q /H /Y release "%ProgramFiles%\LanHui\his"
 echo f|xcopy /E /C /Q /H /Y LanHuiHIS.exe "%ProgramFiles%\LanHui\his\LanHuiHIS.exe"
@@ -26,7 +25,7 @@ echo 桌面快捷方式创建成功！
 makelnk.vbs
 del /f /q makelnk.vbs
 
-REG ADD "HKCU\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers" /v "%ProgramFiles%\LanHui\his\LanHuiHIS.exe" /t REG_SZ /d RUNASADMIN
+echo y|REG ADD "HKCU\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers" /v "%ProgramFiles%\LanHui\his\LanHuiHIS.exe" /t REG_SZ /d RUNASADMIN
 
 
 rem echo [InternetShortcut]>>"%desktop%\蓝徽HIS.url"
